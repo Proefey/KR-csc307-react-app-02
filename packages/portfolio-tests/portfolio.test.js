@@ -26,3 +26,15 @@ test('Testing Unique Shares', () => {
 	mut.setShares([""]);
 	expect(mut.uniqueShares()).toBe(0);
 });
+
+//Question #4
+test('Testing Adding Shares', () => {
+	mut.setShares([]);
+	mut.addShares("AMC", 0);
+	expect(mut.isEmpty()).toBeTruthy();
+	const sharecount = 2;
+	mut.addShares("AMC", sharecount);
+	const gotShares = mut.getShares();
+	expect(gotShares.length).toBe(sharecount);
+	expect(mut.uniqueShares()).toBe(1);
+});

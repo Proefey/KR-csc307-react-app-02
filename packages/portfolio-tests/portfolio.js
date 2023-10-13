@@ -8,6 +8,7 @@ function isEmpty(){
 	return shares.length == 0;
 }
 
+//For testing Purposes Only
 function setShares(newShares){
 	shares = newShares;
 }
@@ -19,4 +20,10 @@ function uniqueShares(){
 	});
 	return unique.length;
 }
-export default {getShares, isEmpty, setShares, uniqueShares}
+
+function addShares(share, count){
+	for(let i = 0; i < count; i++) shares.push(share);
+	return;
+}
+
+export default {getShares, isEmpty, setShares, uniqueShares, addShares}
