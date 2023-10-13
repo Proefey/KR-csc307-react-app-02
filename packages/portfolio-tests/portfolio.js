@@ -9,4 +9,8 @@ function getShares(){
 	return shares;
 }
 
-export default {getTickerSymbols, getShares}
+function isEmpty(){
+	return shares.length == 0;
+}
+
+export default {getTickerSymbols, getShares, isEmpty}
