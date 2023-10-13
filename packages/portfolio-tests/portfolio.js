@@ -26,8 +26,11 @@ function addShares(share, count){
 	return;
 }
 
-//Assumes Valid Share Name and Count
 function sellShares(sellshare, count){
+	const totalcount = countShares(sellshare);
+	if(totalcount < count) {
+		throw new Error('ShareSaleException');
+	}
 	var sellcount = 0;
 	for(let i = shares.length - 1; i >= 0; i--){
 		if(sellcount >= count) break;

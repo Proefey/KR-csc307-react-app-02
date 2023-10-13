@@ -68,3 +68,16 @@ test('Testing Count Shares', () => {
 	expect(mut.countShares("AMC")).toBe(5);
 	expect(mut.countShares("RBLX")).toBe(7);
 });
+
+//Question #7: The way the portfolio is implemented
+//It is impossible for a Symbol to be in the portfolio
+//without being currently owned at least once
+
+//Question #8: Testing Throwing Error
+test('Testing Selling Shares Error', () => {
+	function overSellShares(sellShare, count){
+		mut.sellShares(sellShare, count);
+	}
+	expect(() => {overSellShares("AMC", 6)}).toThrow('ShareSaleException');
+	expect(() => {overSellShares("GME", 6)}).toThrow('ShareSaleException');
+});
