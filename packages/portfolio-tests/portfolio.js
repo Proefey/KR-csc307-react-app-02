@@ -26,4 +26,17 @@ function addShares(share, count){
 	return;
 }
 
-export default {getShares, isEmpty, setShares, uniqueShares, addShares}
+//Assumes Valid Share Name and Count
+function sellShares(sellshare, count){
+	var sellcount = 0;
+	for(let i = shares.length - 1; i >= 0; i--){
+		if(sellcount >= count) break;
+		if(shares[i] === sellshare){
+			sellcount ++;
+			shares.splice(i, 1);
+		}
+	}
+	return;
+}
+
+export default {getShares, isEmpty, setShares, uniqueShares, addShares, sellShares}

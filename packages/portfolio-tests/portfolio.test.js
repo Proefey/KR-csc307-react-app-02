@@ -38,3 +38,23 @@ test('Testing Adding Shares', () => {
 	expect(gotShares.length).toBe(sharecount);
 	expect(mut.uniqueShares()).toBe(1);
 });
+
+//Question #5
+test('Testing Selling Shares', () => {
+	mut.setShares([]);
+	mut.addShares("AMC", 5);
+	mut.addShares("RBLX", 5);
+	var gotShares = mut.getShares();
+	expect(gotShares.length).toBe(10);
+	mut.sellShares("AMC", 0);
+	gotShares = mut.getShares();
+	expect(gotShares.length).toBe(10);
+	mut.sellShares("AMC", 3);
+	gotShares = mut.getShares();
+	expect(gotShares.length).toBe(7);
+	mut.sellShares("AMC", 2);
+	gotShares = mut.getShares();
+	expect(gotShares.length).toBe(5);
+	mut.sellShares("RBLX", 5);
+	expect(mut.isEmpty()).toBeTruthy();
+});
