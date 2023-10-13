@@ -39,4 +39,13 @@ function sellShares(sellshare, count){
 	return;
 }
 
-export default {getShares, isEmpty, setShares, uniqueShares, addShares, sellShares}
+function countShares(countshare){
+	var count = 0;
+	shares.forEach((share) => {
+		if(share === countshare) count ++;
+	});
+	return count;
+}
+
+export default {getShares, isEmpty, setShares, 
+	uniqueShares, addShares, sellShares, countShares}

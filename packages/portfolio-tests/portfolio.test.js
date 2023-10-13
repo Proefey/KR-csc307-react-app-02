@@ -58,3 +58,13 @@ test('Testing Selling Shares', () => {
 	mut.sellShares("RBLX", 5);
 	expect(mut.isEmpty()).toBeTruthy();
 });
+
+//Question #6
+test('Testing Count Shares', () => {
+	mut.setShares([]);
+	mut.addShares("AMC", 5);
+	mut.addShares("RBLX", 7);
+	expect(mut.countShares("GME")).toBe(0);
+	expect(mut.countShares("AMC")).toBe(5);
+	expect(mut.countShares("RBLX")).toBe(7);
+});
