@@ -11,5 +11,8 @@
     "transform": {}
   },
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "portfolio-tests": "file:"
+  }
 }
