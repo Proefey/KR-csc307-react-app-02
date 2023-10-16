@@ -92,26 +92,21 @@ test('Testing Selling All Shares', () => {
 
 //Question #6
 test('Testing Count Shares Where There Are None', () => {
-	mut.setShares([]);
-	mut.addShares("AMC", 5);
+	mut.setShares(["AMC", "AMC", "AMC", "AMC", "AMC"]);
 
 	expect(mut.countShares("GME")).toBe(0);
 });
 
 test('Testing Count Shares Where There Are Some', () => {
-	mut.setShares([]);
-	mut.addShares("AMC", 5);
-	mut.addShares("RBLX", 5);
+	mut.setShares(["AMC", "RBLX", "AMC", "RBLX", "AMC", 
+		"RBLX", "AMC", "RBLX", "AMC"]);
 
 	expect(mut.countShares("AMC")).toBe(5);
 });
 
 //Question #7:
 test('Testing Keeps Partially Owned Shares', () => {
-	mut.setShares([]);
-	mut.addShares("AMC", 2);
-	mut.addShares("RBLX", 2);
-
+	mut.setShares(["AMC", "RBLX", "AMC", "RBLX"]);
 	mut.sellShares("AMC", 1);
 
 	expect(mut.getShares()).toContain("AMC");
@@ -120,9 +115,7 @@ test('Testing Keeps Partially Owned Shares', () => {
 });
 
 test('Testing Does Not Keep Sold Shares', () => {
-	mut.setShares([]);
-	mut.addShares("AMC", 2);
-	mut.addShares("RBLX", 2);
+	mut.setShares(["AMC", "RBLX", "AMC", "RBLX"]);
 
 	mut.sellShares("AMC", 2);
 
@@ -133,9 +126,7 @@ test('Testing Does Not Keep Sold Shares', () => {
 
 //Question #8: Testing Throwing Error
 test('Testing Selling Shares Error If Selling A Non-Owned Stock', () => {
-	mut.setShares([]);
-	mut.addShares("AMC", 1);
-	mut.addShares("RBLX", 2);
+	mut.setShares(["RBLX", "AMC", "RBLX"]);
 	function overSellShares(sellShare, count){
 		mut.sellShares(sellShare, count);
 	}
@@ -144,9 +135,7 @@ test('Testing Selling Shares Error If Selling A Non-Owned Stock', () => {
 });
 
 test('Testing Selling Shares Error If Selling Too Much Of A Stock', () => {
-	mut.setShares([]);
-	mut.addShares("AMC", 1);
-	mut.addShares("RBLX", 2);
+	mut.setShares(["RBLX", "AMC", "RBLX"]);
 	function overSellShares(sellShare, count){
 		mut.sellShares(sellShare, count);
 	}
